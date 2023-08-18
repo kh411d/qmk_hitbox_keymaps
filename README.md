@@ -15,23 +15,19 @@ Additional hitbox layers,
   - Left + Right = Last Input Wins
 ---
 
-![hitbox]()
+![hitBox](https://github.com/kh411d/qmk_reviung41_keymaps/assets/273012/b517b916-4dbf-40d5-ba5c-ff381264ae61)
 
 **hitBox style layout** 
 Hold the Space key and then press T, use Left Shift to go back to the keyboard mode
 
 ---
 
-![crossup]()
+![crossup](https://github.com/kh411d/qmk_reviung41_keymaps/assets/273012/1570da23-237e-44e4-b26a-fdf54337945a)
 
 **Cross|Up style layout** SOCD is Last Input Wins. 
 Hold the Space key and then press G, use Left Shift to go back to the keyboard mode
 
 ---
-
-
-# Download already generated hex file
-
 
 # Self Compile the HEX file 
 Copy the `hitbox/` directory to keymaps directory of your cloned `qmk_firmware` repository,
@@ -44,7 +40,7 @@ Copy the `hitbox/` directory to keymaps directory of your cloned `qmk_firmware` 
 ---------------- hitbox
 ``` 
 
-Make sure your ![QMK environment is already setup](https://docs.qmk.fm/#/newbs_getting_started)
+Make sure your [QMK environment is already setup](https://docs.qmk.fm/#/newbs_getting_started)
 run command under your `qmk_firmware` directory,
 ```
 % cd qmk_firmware
@@ -52,4 +48,7 @@ run command under your `qmk_firmware` directory,
 ```
 Hex file should be created on your qmk_firmware directory
 
-Use ![QMK toolbox](https://github.com/qmk/qmk_toolbox) ![to flash the generated hex file](https://docs.qmk.fm/#/newbs_flashing) for your MCU (e.g. promicro).
+# Flashing
+[Download the hex file, reviung_reviung41_hitbox.hex.zip](https://github.com/kh411d/qmk_reviung41_keymaps/files/12381690/reviung_reviung41_hitbox.hex.zip) if you want to skip the compile process
+
+Use [QMK toolbox to flash the generated hex file](https://docs.qmk.fm/#/newbs_flashing) for your MCU (e.g. promicro).
