@@ -2,7 +2,7 @@
 The SOCD Hitbox implementation was based on [QMK_HID_Gamepad_with_SOCD](https://github.com/brentaro/QMK_HID_Gamepad_with_SOCD/#qmk_hid_gamepad_with_socd)
 
 # Layouts
-Keyboard layers from the original reviung41 layout are set as the default layer with a couple of adjustments.
+Keyboard layers from the original reviung41 layout are set as the default layer with a couple of adjustments, e.g. RGB removal.
 
 ![keyboardfn](https://github.com/kh411d/qmk_reviung41_keymaps/assets/273012/c3449916-f1e0-426f-9909-ce6e591ad83f)
 
