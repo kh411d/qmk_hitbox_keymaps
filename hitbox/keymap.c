@@ -19,11 +19,11 @@ enum layer_names {
     _BASE,
     _LOWER,
     _RAISE,
-	_ADJUST,
+    _ADJUST,
 
 // Append with joystick layer orders
     _GAME1,
-	_GAME2,
+    _GAME2,
     _GAMEFN
 };
 
