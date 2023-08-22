@@ -28,7 +28,7 @@ Use the WIN/toggle key on the bottom left corner to go back to the keyboard mode
 
 ---
 
-![crossup](https://github.com/kh411d/qmk_reviung41_keymaps/assets/273012/3f8a4793-aa4e-4519-9fdd-f7032e70be52)
+![g3233](https://github.com/kh411d/qmk_reviung41_keymaps/assets/273012/2375f10f-ca2d-4784-813c-d7297b7d29b8)
 
 **Stick mode** 
 
@@ -58,6 +58,7 @@ Run this command under your `qmk_firmware` directory,
 On compile succeed, the hex file should be created on your `qmk_firmware/reviung_reviung41_hitbox.hex` directory
 
 # Flashing
-[Download the hex file, reviung_reviung41_hitbox.hex.zip](https://github.com/kh411d/qmk_reviung41_keymaps/files/12393386/reviung_reviung41_hitbox.hex.zip) if you want to skip the compile process
+
+Download the hex file [reviung_reviung41_hitbox.hex.zip](https://github.com/kh411d/qmk_reviung41_keymaps/files/12394843/reviung_reviung41_hitbox.hex.zip) to skip the compile process
 
 Use [QMK toolbox to flash the generated hex file](https://docs.qmk.fm/#/newbs_flashing) for your MCU (e.g. promicro, seamicro, etc).
