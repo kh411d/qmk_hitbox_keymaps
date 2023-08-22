@@ -1,6 +1,6 @@
 # QMK REVIUNG41 Hitbox layout
 Add additional joystick layers to the default reviung41 keyboard layout.
-# Layouts
+## Layouts
 Keyboard layers from the original reviung41 layout are set as the default layer with a couple of adjustments, e.g. RGB removal.
 
 ![keyboardfn](https://github.com/kh411d/qmk_reviung41_keymaps/assets/273012/c3449916-f1e0-426f-9909-ce6e591ad83f)
@@ -36,7 +36,7 @@ Use the WIN/toggle key on the bottom left corner to go back to the keyboard mode
 
 ---
 
-# Self Compile the HEX file 
+## Self Compile the firmware file 
 
 [Setup your own local QMK environment](https://docs.qmk.fm/#/newbs_getting_started)
 
@@ -57,7 +57,7 @@ Run this command under your `qmk_firmware` directory,
 ```
 On compile succeed, the hex file should be created on your `qmk_firmware/reviung_reviung41_hitbox.hex` directory
 
-# Flashing
+## Flashing
 
 Download the hex file [reviung_reviung41_hitbox.hex.zip](https://github.com/kh411d/qmk_reviung41_keymaps/files/12394843/reviung_reviung41_hitbox.hex.zip) to skip the compile process
 
