@@ -1,6 +1,5 @@
 # QMK REVIUNG41 Keyboard + Hitbox keymapping
-The SOCD Hitbox implementation was based on [QMK_HID_Gamepad_with_SOCD](https://github.com/brentaro/QMK_HID_Gamepad_with_SOCD/#qmk_hid_gamepad_with_socd)
-
+Add additional joystick layers to the default reviung41 keyboard layout.
 # Layouts
 Keyboard layers from the original reviung41 layout are set as the default layer with a couple of adjustments, e.g. RGB removal.
 
@@ -8,24 +7,22 @@ Keyboard layers from the original reviung41 layout are set as the default layer 
 
 Usage:
 
-- Hold the Space key and then press T for the **hitBox** layout
-- Hold the Space key and then press G for the **Cross|Up** layout
+- Hold the Space key and then press T for the **DPAD** mode
+- Hold the Space key and then press G for the virtual **Stick** mode
 
-Additional game layers,
 
-**<ins>Note on Default SOCD behavior for ALL layouts</ins>:**
-- **DPAD Behavior**
-  - Up + Down = Up
-  - Left + Right = Neutral
-- **LS and RS behavior**
-  - Up + Down = Up
-  - Left + Right = Last Input Wins
+Joystick layers,
+
+- **17** buttons and a single left stick mode
+- Common SOCD, 
+    - Up + Down = Up
+    - Left + Right = Neutral
 ---
 
 
 ![hitbox](https://github.com/kh411d/qmk_reviung41_keymaps/assets/273012/5a45c421-db0c-4c33-817f-82a2cd0b711e)
 
-**hitBox style layout** 
+**DPAD mode** 
 
 Use the WIN/toggle key on the bottom left corner to go back to the keyboard mode
 
@@ -33,7 +30,7 @@ Use the WIN/toggle key on the bottom left corner to go back to the keyboard mode
 
 ![crossup](https://github.com/kh411d/qmk_reviung41_keymaps/assets/273012/3f8a4793-aa4e-4519-9fdd-f7032e70be52)
 
-**Cross|Up style layout** SOCD is Last Input Wins. 
+**Stick mode** 
 
 Use the WIN/toggle key on the bottom left corner to go back to the keyboard mode
 

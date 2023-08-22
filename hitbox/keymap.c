@@ -22,60 +22,51 @@ enum layer_names {
 	_ADJUST,
 
 // Append with joystick layer orders
-    _GAME1,
-	_GAME2,
-    _GAMEFN
+    _DPAD,
+	_STICK,
+    _JOYFN
 };
 
 #define LOWER  MO(_LOWER)
 #define RAISE  MO(_RAISE)
 #define ADJUST MO(_ADJUST)
 
-/* Joystick variables and configurations */
-#define GAME1  TG(_GAME1)
-#define GAME2  TG(_GAME2)
-#define GAMEFN LT(_GAMEFN, KC_SPC)
+// Joystick variables init */
+#define DPAD  TG(_DPAD)
+#define STICK  TG(_STICK)
+#define JOYFN LT(_JOYFN, KC_SPC)
+enum custom_keycodes {  
+	JS_CRO = SAFE_RANGE,
+	JS_CIR,
+	JS_SQU,
+	JS_TRI,    
+	JS_L1,
+	JS_R1,
+	JS_L2,
+	JS_R2,
+	JS_SEL,
+	JS_STRT,
+	JS_L3,
+	JS_R3,
+	JS_UP,
+	JS_DN,
+	JS_LT,
+	JS_RT,
+	JS_HOM
+};
 
-enum custom_keycodes {      
-	GC_LSU = SAFE_RANGE,
-	GC_LSD,
-	GC_LSL,
-	GC_LSR,
-	GC_DPU,
-	GC_DPD,
-	GC_DPL,
-	GC_DPR,
-	GC_SQU,
-	GC_CRO,
-	GC_CIR,
-	GC_TRI,
-	GC_L1,
-	GC_L2,
-	GC_L3,
-	GC_R1,
-	GC_R2,
-	GC_R3,
-	GC_STA,
-	GC_SEL,
-	GC_HOM
+const key_override_t enter_key_override = ko_make_basic(MOD_BIT(KC_LSFT), KC_ENTER, KC_DQUO);
+const key_override_t **key_overrides = (const key_override_t *[]){
+    &enter_key_override,
+    NULL 
 };
-	
-joystick_config_t joystick_axes[JOYSTICK_AXIS_COUNT] = {
-	JOYSTICK_AXIS_VIRTUAL,
-	JOYSTICK_AXIS_VIRTUAL,
-	JOYSTICK_AXIS_VIRTUAL,
-	JOYSTICK_AXIS_VIRTUAL,
-	JOYSTICK_AXIS_VIRTUAL,
-	JOYSTICK_AXIS_VIRTUAL,
-};
-/*************************/
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT(
     KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,      KC_T,               KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_BSPC,
     KC_LCTL,  KC_A,     KC_S,     KC_D,     KC_F,      KC_G,               KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
     KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,      KC_B,               KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  RSFT_T(KC_ENT),
-                                            KC_LALT,   LOWER,    GAMEFN,   RAISE,    KC_RGUI
+                                            KC_LALT,   LOWER,    JOYFN,   RAISE,    KC_RGUI
   ),
   
   [_LOWER] = LAYOUT(
@@ -93,34 +84,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   
   [_ADJUST] = LAYOUT(
-    XXXXXXX,   XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,            XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    XXXXXXX,   XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,            XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    XXXXXXX,   XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,            QK_BOOT,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    RGB_VAI,   RGB_SAI, RGB_HUI,  RGB_MOD,  XXXXXXX,   RGB_TOG,            XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    RGB_VAD,   RGB_SAD, RGB_HUD,  RGB_RMOD, XXXXXXX,   XXXXXXX,            XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    XXXXXXX,   XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,            QK_BOOT,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
                                             _______,   _______,  XXXXXXX,  _______,  _______
   ),
 
-  /* The Joystick Layers */
-  [_GAME1] = LAYOUT(
-    GC_HOM,  GC_SEL,   GC_STA,  XXXXXXX, XXXXXXX,  GC_L3,            GC_R3,    GC_SQU,    GC_TRI,  GC_R1,   GC_L1,   XXXXXXX,
-    XXXXXXX, XXXXXXX,  GC_DPL,  GC_DPD,  GC_DPR,  XXXXXXX,           XXXXXXX,  GC_CRO,    GC_CIR,  GC_R2,   GC_L2,   XXXXXXX,
-    GAME1,   XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,           XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX,
-                                         XXXXXXX, GC_DPU,   GC_DPU,  GC_DPU,   XXXXXXX
+  // The Joystick Layers 
+  [_DPAD] = LAYOUT(
+    JS_HOM,  JS_SEL,   JS_STRT, XXXXXXX, XXXXXXX,  JS_L3,             JS_R3,    JS_SQU,    JS_TRI,  JS_R1,   JS_L1,   XXXXXXX,
+    XXXXXXX, XXXXXXX,  JS_LT,   JS_DN,   JS_RT,    XXXXXXX,           XXXXXXX,  JS_CRO,    JS_CIR,  JS_R2,   JS_L2,   XXXXXXX,
+    DPAD,    XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,           XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX,
+                                         XXXXXXX,  JS_UP,     JS_UP,  JS_UP,    XXXXXXX
   ),
  
-  [_GAME2] = LAYOUT(
-    GC_HOM,  GC_SEL,  GC_STA,  XXXXXXX,  XXXXXXX, GC_L3,             GC_R3,   GC_SQU,  GC_TRI,  GC_R1,  GC_L1,   XXXXXXX,
-    XXXXXXX, XXXXXXX, GC_LSL,  GC_LSD,   GC_LSR,  XXXXXXX,           XXXXXXX, GC_CRO,  GC_CIR,  GC_R2,  GC_L2,   XXXXXXX,
-    GAME2,   XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,           XXXXXXX, GC_DPL,  GC_DPD,  GC_DPR, XXXXXXX, XXXXXXX,
-                                         XXXXXXX, GC_LSU,   GC_LSU,  GC_DPU,  XXXXXXX
+  [_STICK] = LAYOUT(
+    JS_HOM,  JS_SEL,   JS_STRT, XXXXXXX, XXXXXXX,  JS_L3,             JS_R3,    JS_SQU,    JS_TRI,  JS_R1,   JS_L1,   XXXXXXX,
+    XXXXXXX, XXXXXXX,  JS_LT,   JS_DN,   JS_RT,    XXXXXXX,           XXXXXXX,  JS_CRO,    JS_CIR,  JS_R2,   JS_L2,   XXXXXXX,
+    STICK,   XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,           XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX,
+                                         XXXXXXX,  JS_UP,     JS_UP,  JS_UP,    XXXXXXX
   ),
   
-  [_GAMEFN] = LAYOUT(
-    XXXXXXX,   XXXXXXX, XXXXXXX,  KC_UP,    XXXXXXX,   GAME1,            KC_HOME,  KC_PGDN,   KC_PGUP,  KC_END,   KC_DEL,   KC_BSPC,
-    KC_LCTL,   XXXXXXX, KC_LEFT,  KC_DOWN,  KC_RGHT,   GAME2,            KC_LEFT,  KC_DOWN,   KC_UP,    KC_RGHT,  XXXXXXX,  KC_ENT,
-    KC_LSFT,   XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,          XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-                                            KC_LGUI,   LOWER,   GAMEFN,  RAISE,  KC_RGUI
+  [_JOYFN] = LAYOUT(
+    XXXXXXX,   XXXXXXX, XXXXXXX,  KC_UP,    XXXXXXX,  DPAD,             KC_HOME,  KC_PGDN,   KC_PGUP,  KC_END,   KC_DEL,   KC_BSPC,
+    KC_LCTL,   XXXXXXX, KC_LEFT,  KC_DOWN,  KC_RGHT,  STICK,            KC_LEFT,  KC_DOWN,   KC_UP,    KC_RGHT,  XXXXXXX,  KC_ENT,
+    KC_LSFT,   XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,          XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+                                            XXXXXXX,  XXXXXXX, JOYFN,   XXXXXXX,  XXXXXXX
   ),
-  /***********/
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
@@ -128,221 +118,134 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 }
 
 
-/* Joystick functions */
+/* Start Joystick configurations and macros */
+bool UP_FLAG = false;
+bool DN_FLAG = false;
+bool LT_FLAG = false;
+bool RT_FLAG = false;
 
-// L1 Left axis button state
-bool LSU_STATE = false;
-bool LSD_STATE = false;
-bool LSL_STATE = false;
-bool LSR_STATE = false;
+// left stick axis 0,1  |  right stick axis 2,3
+joystick_config_t joystick_axes[JOYSTICK_AXIS_COUNT] = {
+	JOYSTICK_AXIS_VIRTUAL, // x
+	JOYSTICK_AXIS_VIRTUAL, // y
+};
 
-// DPAD buttons state
-bool DPU_STATE = false;
-bool DPD_STATE = false;
-bool DPL_STATE = false;
-bool DPR_STATE = false;
+// SOCD: up+down = up
+bool joy_up(bool ok) {
+	if (ok) {
+		UP_FLAG = true;
+		if (DN_FLAG) {
+		 IS_LAYER_ON(_DPAD) ? unregister_joystick_button(13): joystick_set_axis(1, 0);
+		}
+		 IS_LAYER_ON(_DPAD) ? register_joystick_button(12): joystick_set_axis(1, -127);
+	} else {
+		UP_FLAG = false;
+		IS_LAYER_ON(_DPAD) ? unregister_joystick_button(12): joystick_set_axis(1, 0);
+	}
+	return false;
+}
 
-// SOCD implementation
+// SOCD: down+up = up
+bool joy_dn(bool ok) {
+	if (ok) {
+		DN_FLAG = true;
+		if (!UP_FLAG) {
+		 IS_LAYER_ON(_DPAD) ? register_joystick_button(13): joystick_set_axis(1, 127);
+		}
+	} else {
+		DN_FLAG = false;
+		IS_LAYER_ON(_DPAD) ? unregister_joystick_button(13): joystick_set_axis(1, 0);
+	}
+	return false;
+}
+
+// SOCD: left+right = neutral 
+bool joy_lt(bool ok) {
+	if (ok) {
+		LT_FLAG = true;
+		if (RT_FLAG) {
+		 	IS_LAYER_ON(_DPAD) ? unregister_joystick_button(15): joystick_set_axis(0, 0);
+		} else {
+			IS_LAYER_ON(_DPAD) ? register_joystick_button(14): joystick_set_axis(0, -127);
+		}
+	} else {
+		LT_FLAG = false;
+		IS_LAYER_ON(_DPAD) ? unregister_joystick_button(14): joystick_set_axis(0, 0);
+		if(RT_FLAG) {
+			IS_LAYER_ON(_DPAD) ? register_joystick_button(15): joystick_set_axis(0, 127);
+		}
+	}
+	return false;
+}
+
+// SOCD: right+left = neutral 
+bool joy_rt(bool ok) {
+	if (ok) {
+		RT_FLAG = true;
+		if (LT_FLAG) {
+		 	IS_LAYER_ON(_DPAD) ? unregister_joystick_button(14): joystick_set_axis(0, 0);
+		} else {
+			IS_LAYER_ON(_DPAD) ? register_joystick_button(15): joystick_set_axis(0, 127);
+		}
+	} else {
+		RT_FLAG = false;
+		IS_LAYER_ON(_DPAD) ? unregister_joystick_button(15): joystick_set_axis(0, 0);
+		if(LT_FLAG) {
+			IS_LAYER_ON(_DPAD) ? register_joystick_button(14): joystick_set_axis(0, -127);
+		}
+	}
+	return false;
+}
+
+bool joy_x(bool ok, uint8_t button) {
+	ok ? register_joystick_button(button): unregister_joystick_button(button);
+	return false;
+}
+
+// The order of button numbering is following the button report number from the good ol PS3 joystick
+// e.g. Cross = button 0, Circle = button 1, ... , Home = button 16
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+	bool p = record->event.pressed;
 	switch (keycode) {
-		case GC_LSU:
-			if (record->event.pressed) {
-				LSU_STATE = true;
-				joystick_set_axis(1, -127);
-			} else {
-				LSU_STATE = false;
-				if (LSD_STATE) {
-					joystick_set_axis(1, 127);
-				} else {
-					joystick_set_axis(1, 0);
-				}
-			}
-			return false;
-		case GC_LSD:
-			if (record->event.pressed) {
-				LSD_STATE = true;
-				if (!LSU_STATE) {
-					joystick_set_axis(1, 127);
-				}
-			} else {
-				LSD_STATE = false;	
-				if (!LSU_STATE) {
-					joystick_set_axis(1, 0);
-				}	
-			}
-			return false;
-		case GC_LSL:
-			if (record->event.pressed) {
-				LSL_STATE = true;
-				joystick_set_axis(0, -127);
-			} else {
-				LSL_STATE = false;
-				if (LSR_STATE) {
-					joystick_set_axis(0, 127);
-				} else {
-					joystick_set_axis(0, 0);
-				}
-			}
-			return false;
-		case GC_LSR:
-			if (record->event.pressed) {
-				LSR_STATE = true;
-				joystick_set_axis(0, 127);
-			} else {
-				LSR_STATE = false;
-				if (LSL_STATE) {
-					joystick_set_axis(0, -127);
-				} else {
-					joystick_set_axis(0, 0);
-				}
-			}
-			return false;
-		case GC_DPU:
-			if (record->event.pressed) {
-				DPU_STATE = true;
-				if (DPD_STATE) {
-					unregister_joystick_button(16);
-				}
-				register_joystick_button(18);
-			} else {
-				DPU_STATE = false;
-				unregister_joystick_button(18);
-			}
-			return false;
-		case GC_DPD:
-			if (record->event.pressed) {
-				DPD_STATE = true;
-				if (!DPU_STATE) {
-					register_joystick_button(16);
-				}
-			} else {
-				DPD_STATE = false;
-				unregister_joystick_button(16);
-			}
-			return false;
-		case GC_DPL:
-			if (record->event.pressed) {
-				DPL_STATE = true;
-				if (DPR_STATE) {
-					unregister_joystick_button(17);
-				} else {
-					register_joystick_button(15);
-				}
-			} else {
-				DPL_STATE = false;
-				unregister_joystick_button(15);
-				if (DPR_STATE) {
-					register_joystick_button(17);
-				}
-			}
-			return false;
-		case GC_DPR:
-			if (record->event.pressed) {
-				DPR_STATE = true;
-				if (DPL_STATE) {
-					unregister_joystick_button(15);
-				} else {
-					register_joystick_button(17);
-				}
-			} else {
-				DPR_STATE = false;
-				unregister_joystick_button(17);
-				if (DPL_STATE) {
-					register_joystick_button(15);
-				}
-			}
-			return false;
-		case GC_SQU:
-			if (record->event.pressed) {
-				register_joystick_button(0);
-			} else {
-				unregister_joystick_button(0);
-			}
-			return false;
-		case GC_CRO:
-			if (record->event.pressed) {
-				register_joystick_button(1);
-			} else {
-				unregister_joystick_button(1);
-			}
-			return false;
-		case GC_CIR:
-			if (record->event.pressed) {
-				register_joystick_button(2);
-			} else {
-				unregister_joystick_button(2);
-			}
-			return false;
-		case GC_TRI:
-			if (record->event.pressed) {
-				register_joystick_button(3);
-			} else {
-				unregister_joystick_button(3);
-			}
-			return false;
-		case GC_L1:
-			if (record->event.pressed) {
-				register_joystick_button(4);
-			} else {
-				unregister_joystick_button(4);
-			}
-			return false;
-		case GC_R1:
-			if (record->event.pressed) {
-				register_joystick_button(5);
-			} else {
-				unregister_joystick_button(5);
-			}
-			return false;
-		case GC_L2:
-			if (record->event.pressed) {
-				register_joystick_button(6);
-			} else {
-				unregister_joystick_button(6);
-			}
-			return false;
-		case GC_R2:
-			if (record->event.pressed) {
-				register_joystick_button(7);
-			} else {
-				unregister_joystick_button(7);
-			}
-			return false;
-		case GC_SEL:
-			if (record->event.pressed) {
-				register_joystick_button(8);
-			} else {
-				unregister_joystick_button(8);
-			}
-			return false;
-		case GC_STA:
-			if (record->event.pressed) {
-				register_joystick_button(9);
-			} else {
-				unregister_joystick_button(9);
-			}
-			return false;
-		case GC_L3:
-			if (record->event.pressed) {
-				register_joystick_button(10);
-			} else {
-				unregister_joystick_button(10);
-			}
-			return false;
-		case GC_R3:
-			if (record->event.pressed) {
-				register_joystick_button(11);
-			} else {
-				unregister_joystick_button(11);
-			}
-			return false;
-		case GC_HOM:
-			if (record->event.pressed) {
-				register_joystick_button(12);
-			} else {
-				unregister_joystick_button(12);
-			}
-			return false;
+		case JS_CRO:
+			return joy_x(p, 0);
+		case JS_CIR:
+			return joy_x(p, 1);
+		case JS_SQU:
+			return joy_x(p, 2);
+		case JS_TRI:
+			return joy_x(p, 3);	
+		case JS_L1:
+			return joy_x(p, 4);
+		case JS_R1:
+			return joy_x(p, 5);
+		case JS_L2:
+			return joy_x(p, 6);
+		case JS_R2:
+			return joy_x(p, 7);
+		case JS_SEL:
+			return joy_x(p, 8);
+		case JS_STRT:
+			return joy_x(p, 9);
+		case JS_L3:
+			return joy_x(p, 10);
+		case JS_R3:
+			return joy_x(p, 11);
+
+		// DPAD and Stick buttons
+		case JS_UP:
+			return joy_up(p); // button 12 | LS Axis (1, -127)
+		case JS_DN:
+			return joy_dn(p); // button 13 | LS Axis (1, 127)
+		case JS_LT:
+			return joy_lt(p); // button 14 | LS Axis (0, -127)
+		case JS_RT:
+			return joy_rt(p); // button 15 | LS Axis (0, 127)
+
+		// PS Home button
+		case JS_HOM:
+			return joy_x(p, 16);
+
 		default:
 			return true;
 	}

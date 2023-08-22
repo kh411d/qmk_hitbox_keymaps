@@ -4,10 +4,10 @@
 #define QMK_KEYS_PER_SCAN 12
 
 // Joystick Button Count
-#define JOYSTICK_BUTTON_COUNT 32
+#define JOYSTICK_BUTTON_COUNT 17
 
 // Joystick Axes Count
-#define JOYSTICK_AXIS_COUNT 6
+#define JOYSTICK_AXIS_COUNT 2
 
 // Joystick Axes Resolution
 #define JOYSTICK_AXIS_RESOLUTION 8
