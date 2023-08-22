@@ -1,4 +1,4 @@
-# QMK REVIUNG41 Keyboard + Hitbox keymapping
+# QMK REVIUNG41 Hitbox layout
 Add additional joystick layers to the default reviung41 keyboard layout.
 # Layouts
 Keyboard layers from the original reviung41 layout are set as the default layer with a couple of adjustments, e.g. RGB removal.
