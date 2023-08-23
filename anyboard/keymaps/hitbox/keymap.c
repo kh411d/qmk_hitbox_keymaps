@@ -16,28 +16,21 @@
 #include QMK_KEYBOARD_H
 
 enum layer_names {
-// Default layer here
-    // _BASE,
-    // _LOWER,
-    // _RAISE,
-    // _ADJUST,
 
-// Append with joystick layer orders
+// Paste default layer enums here
+
     _DPAD,
-	_STICK,
+    _STICK,
     _JOYFN
 };
 
-// #define LOWER  MO(_LOWER)
-// #define RAISE  MO(_RAISE)
-// #define ADJUST MO(_ADJUST)
+// Paste defined layer enums here
 
-// Joystick variables init 
 #define DPAD  TG(_DPAD)
 #define STICK  TG(_STICK)
 #define JOYFN LT(_JOYFN, KC_SPC)
 enum custom_keycodes {  
-	// Cross, Circle, Square, Triangle buttons
+	// Cross, Circle, Square, and Triangle buttons
 	JS_CRO = SAFE_RANGE,
 	JS_CIR,
 	JS_SQU,
@@ -68,13 +61,10 @@ enum custom_keycodes {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  /** Default layer **/
 
-	// Paste your default layer here
+  // Paste your default layer here
 
-  
 
-  
   // DPAD mode layer, map all joystick custom keycodes (JS_CRO, JS_CIR, ...) here
   // use DPAD key for toggling off dpad mode
   [_DPAD] = LAYOUT(
@@ -94,7 +84,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 
-/* Start Joystick configurations and macros */
+// Joystick configurations and macros 
+
 bool UP_FLAG = false;
 bool DN_FLAG = false;
 bool LT_FLAG = false;
