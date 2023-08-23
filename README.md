@@ -1,5 +1,9 @@
-# QMK REVIUNG41 Hitbox layout
-Add additional joystick layers to the default reviung41 keyboard layout.
+# QMK Hitbox layout
+Add additional joystick layers to the default layout.
+
+You can use anyboard keymap as you base template, [anyboard/keymaps/hitbox](https://github.com/kh411d/qmk_reviung41_keymaps/tree/master/anyboard/keymaps/hitbox) take Reviung41 layout below as example
+
+# REVIUNG41 Hitbox layout
 ## Layouts
 Keyboard layers from the original reviung41 layout are set as the default layer with a couple of adjustments, e.g. RGB removal.
 
