@@ -37,22 +37,33 @@ enum layer_names {
 #define STICK  TG(_STICK)
 #define JOYFN LT(_JOYFN, KC_SPC)
 enum custom_keycodes {  
+	// Cross, Circle, Square, Triangle buttons
 	JS_CRO = SAFE_RANGE,
 	JS_CIR,
 	JS_SQU,
-	JS_TRI,    
+	JS_TRI,
+
+	// L R buttons    
 	JS_L1,
 	JS_R1,
 	JS_L2,
 	JS_R2,
+
+	// Select and Start buttons
 	JS_SEL,
 	JS_STRT,
+
+	// LS RS buttons
 	JS_L3,
 	JS_R3,
+
+	// DPAD/Stick buttons
 	JS_UP,
 	JS_DN,
 	JS_LT,
 	JS_RT,
+	
+	// Home button
 	JS_HOM
 };
 
@@ -62,14 +73,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	// Paste your default layer here
 
   
+
   
-  
-  // DPAD mode layer, map all joystick custom keycode here
+  // DPAD mode layer, map all joystick custom keycodes (JS_CRO, JS_CIR, ...) here
   // use DPAD key for toggling off dpad mode
   [_DPAD] = LAYOUT(
     DPAD,    
   ),
-  // Stick mode layer, map all joystick custom keycode here
+  // Stick mode layer, map all joystick custom keycodes (JS_CRO, JS_CIR, ...) here
   // use STICK key for toggling off stick mode
   [_STICK] = LAYOUT(
     STICK,
