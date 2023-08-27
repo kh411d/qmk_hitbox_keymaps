@@ -1,7 +1,4 @@
 #pragma once
-// 1000hz Polling Rate
-#define USB_POLLING_INTERVAL_MS 1
-#define QMK_KEYS_PER_SCAN 12
 
 // Joystick Button Count
 #define JOYSTICK_BUTTON_COUNT 17

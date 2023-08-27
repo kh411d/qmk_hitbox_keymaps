@@ -17,22 +17,22 @@
 
 enum layer_names {
     _BASE,
-    _LOWER,
-    _RAISE,
-	_ADJUST,
 
-// Append with joystick layer orders
+
+/* Joystick layer start from here */
+// Direction Layers defaulted to standard SOCD
     _DPAD,
 	_LSTICK,
+
+// SOCD Layers
 	_SOCDN,
 	_SOCDLIP,
+
+// Toggle layers
 	_SOCDFN,
     _JOYFN
 };
 
-#define LOWER  MO(_LOWER)
-#define RAISE  MO(_RAISE)
-#define ADJUST MO(_ADJUST)
 
 // Joystick variables init 
 #define BASE    TO(_BASE)
@@ -44,117 +44,101 @@ enum layer_names {
 #define SOCDFN  MO(_SOCDFN)
 
 enum custom_keycodes {  
+	// Cross, Circle, Square, Triangle buttons
 	JS_CRO = SAFE_RANGE,
 	JS_CIR,
 	JS_SQU,
 	JS_TRI,   
 
+	// L R buttons
 	JS_L1,
 	JS_R1,
 	JS_L2,
 	JS_R2,
 
+	// Select Start buttons
 	JS_SEL,
 	JS_STRT,
 
+	// LS and LR button press
 	JS_L3,
 	JS_R3,
 
-	// with Standard SOCD
+	// SOCD Standard
 	JS_UP,
 	JS_DN,
 	JS_LT,
 	JS_RT,
 
-	// UP + DOWN with true neutral SOCD keycodes
+	// SOCD True neutral
 	JS_UP_N,
 	JS_DN_N,
 
-	// with Last Input Priority keycodes
+	// SOCD Last Input Priority
 	JS_UP_LIP,
 	JS_DN_LIP,
 	JS_LT_LIP,
 	JS_RT_LIP,
 
+	// PS/Home button
 	JS_HOM
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+  // The Keyboard Layer
   [_BASE] = LAYOUT(
-    KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,      KC_T,               KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_BSPC,
-    KC_LCTL,  KC_A,     KC_S,     KC_D,     KC_F,      KC_G,               KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
-    KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,      KC_B,               KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  RSFT_T(KC_ENT),
-                                            KC_LALT,   LOWER,    JOYFN,   RAISE,    KC_RGUI
-  ),
-  
-  [_LOWER] = LAYOUT(
-    _______,  KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,    KC_PERC,            KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_DEL,
-    _______,  KC_UNDS,  KC_PLUS,  KC_LCBR,  KC_RCBR,   KC_PIPE,            KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_GRV,   KC_TILD,
-    _______,  KC_ESC,   KC_LGUI,  KC_LALT,  KC_CAPS,   KC_DQUO,            KC_HOME,  KC_END,   KC_PGUP,  KC_PGDN,  KC_PSCR,  RSFT_T(KC_SPC),
-                                            _______,   _______,  KC_ENT,   _______,  _______
-  ),
-  
-  [_RAISE] = LAYOUT(
-    _______,  KC_1,     KC_2,     KC_3,     KC_4,      KC_5,               KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_DEL,
-    _______,  KC_MINS,  KC_EQL,   KC_LBRC,  KC_RBRC,   KC_BSLS,            KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,
-    _______,  KC_ESC,   KC_RGUI,  KC_RALT,  KC_CAPS,   KC_QUOT,            KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,
-                                            _______,   _______,  KC_BSPC,  _______,  _______
-  ),
-  
-  [_ADJUST] = LAYOUT(
-    RGB_VAI,   RGB_SAI, RGB_HUI,  RGB_MOD,  XXXXXXX,   RGB_TOG,            XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    RGB_VAD,   RGB_SAD, RGB_HUD,  RGB_RMOD, XXXXXXX,   XXXXXXX,            XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    XXXXXXX,   XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,            QK_BOOT,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-                                            _______,   _______,  XXXXXXX,  _______,  _______
+    XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, 
+	XXXXXXX,    KC_S,    KC_D,  XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                                                              
+	XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, JOYFN,   XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, QK_BOOT
   ),
 
   // The Joystick Layers 
   [_DPAD] = LAYOUT(
-    JS_HOM,  JS_SEL,   JS_STRT, XXXXXXX, XXXXXXX,  JS_L3,             JS_R3,    JS_SQU,    JS_TRI,  JS_R1,   JS_L1,   XXXXXXX,
-    XXXXXXX, XXXXXXX,  JS_LT,   JS_DN,   JS_RT,    XXXXXXX,           XXXXXXX,  JS_CRO,    JS_CIR,  JS_R2,   JS_L2,   XXXXXXX,
-    BASE,    XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,           XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, SOCDFN,
-                                         XXXXXXX,  JS_UP,     JS_UP,  JS_UP,    XXXXXXX
+    JS_HOM,  JS_SEL,  JS_STRT, JS_L3,    JS_R3,   XXXXXXX,  JS_SQU,   JS_TRI,  JS_R1,   JS_L1,   
+	XXXXXXX, JS_LT,   JS_DN,   JS_RT,	 XXXXXXX, XXXXXXX,  JS_CRO,   JS_CIR,  JS_R2,   JS_L2,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                                                              
+	BASE,    XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, JS_UP,    XXXXXXX,  XXXXXXX, XXXXXXX, SOCDFN
   ),
  
   [_LSTICK] = LAYOUT(
-    JS_HOM,  JS_SEL,   JS_STRT, XXXXXXX, XXXXXXX,  JS_L3,             JS_R3,    JS_SQU,    JS_TRI,  JS_R1,   JS_L1,   XXXXXXX,
-    XXXXXXX, XXXXXXX,  JS_LT,   JS_DN,   JS_RT,    XXXXXXX,           XXXXXXX,  JS_CRO,    JS_CIR,  JS_R2,   JS_L2,   XXXXXXX,
-    BASE,    XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,           XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, SOCDFN,
-                                         XXXXXXX,  JS_UP,     JS_UP,  JS_UP,    XXXXXXX
+    JS_HOM,  JS_SEL,  JS_STRT, JS_L3,    JS_R3,   XXXXXXX,  JS_SQU,   JS_TRI,  JS_R1,   JS_L1,   
+	XXXXXXX, JS_LT,   JS_DN,   JS_RT,	 XXXXXXX, XXXXXXX,  JS_CRO,   JS_CIR,  JS_R2,   JS_L2,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                                                              
+	BASE,    XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, JS_UP,    XXXXXXX,  XXXXXXX, XXXXXXX, SOCDFN
   ),
 
   [_SOCDN] = LAYOUT(
-    JS_HOM,  JS_SEL,   JS_STRT, XXXXXXX, XXXXXXX,  JS_L3,              JS_R3,    JS_SQU,    JS_TRI,  JS_R1,   JS_L1,   XXXXXXX,
-    XXXXXXX, XXXXXXX,  JS_LT,   JS_DN_N, JS_RT,    XXXXXXX,            XXXXXXX,  JS_CRO,    JS_CIR,  JS_R2,   JS_L2,   XXXXXXX,
-    BASE,    XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,            XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, SOCDFN,
-                                         XXXXXXX,  JS_UP_N,  JS_UP_N,  JS_UP,    XXXXXXX
+    JS_HOM,  JS_SEL,  JS_STRT, JS_L3,    JS_R3,   XXXXXXX,  JS_SQU,   JS_TRI,  JS_R1,   JS_L1,   
+	XXXXXXX, JS_LT,   JS_DN_N, JS_RT,	 XXXXXXX, XXXXXXX,  JS_CRO,   JS_CIR,  JS_R2,   JS_L2,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                                                              
+	BASE,    XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, JS_UP_N,  XXXXXXX,  XXXXXXX, XXXXXXX, SOCDFN
   ),
 
   [_SOCDLIP] = LAYOUT(
-    JS_HOM,  JS_SEL,   JS_STRT,    XXXXXXX,    XXXXXXX,    JS_L3,                     JS_R3,      JS_SQU,   JS_TRI,  JS_R1,   JS_L1,   XXXXXXX,
-    XXXXXXX, XXXXXXX,  JS_LT_LIP,  JS_DN_LIP,  JS_RT_LIP,  XXXXXXX,                   XXXXXXX,    JS_CRO,   JS_CIR,  JS_R2,   JS_L2,   XXXXXXX,
-    BASE,    XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                   XXXXXXX,    XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, SOCDFN,
-                                               XXXXXXX,    JS_UP_LIP,     JS_UP_LIP,  JS_UP_LIP,  XXXXXXX
+    JS_HOM,  JS_SEL,    JS_STRT,   JS_L3,      JS_R3,   XXXXXXX,    JS_SQU,   JS_TRI,  JS_R1,   JS_L1,   
+	XXXXXXX, JS_LT_LIP, JS_DN_LIP, JS_RT_LIP,  XXXXXXX, XXXXXXX,    JS_CRO,   JS_CIR,  JS_R2,   JS_L2,
+    XXXXXXX, XXXXXXX,   XXXXXXX,   XXXXXXX,    XXXXXXX, XXXXXXX,    XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                                                              
+	BASE,    XXXXXXX,   XXXXXXX,   XXXXXXX,    XXXXXXX, JS_UP_LIP,  XXXXXXX,  XXXXXXX, XXXXXXX, SOCDFN
   ),
 
   [_SOCDFN] = LAYOUT(
-    XXXXXXX,   XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,          XXXXXXX,   XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    XXXXXXX,   XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,          XXXXXXX,   DPAD,    SOCDN,    SOCDLIP,  XXXXXXX,  XXXXXXX,
-    XXXXXXX,   XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,          XXXXXXX,   XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,  SOCDFN,
-                                            XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, 
+	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  DPAD,     SOCDN,   SOCDLIP, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                                                              
+	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, SOCDFN
   ),
   
   [_JOYFN] = LAYOUT(
-    XXXXXXX,   XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,          KC_HOME,  KC_PGDN,   KC_PGUP,  KC_END,   KC_DEL,   KC_BSPC,
-    KC_LCTL,   XXXXXXX, LSTICK,   DPAD,     XXXXXXX,  XXXXXXX,          KC_LEFT,  KC_DOWN,   KC_UP,    KC_RGHT,  XXXXXXX,  KC_ENT,
-    KC_LSFT,   XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,          XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,
-                                            XXXXXXX,  XXXXXXX, JOYFN,   XXXXXXX,  XXXXXXX
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, 
+	XXXXXXX, XXXXXXX, LSTICK,  DPAD,     XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                                                              
+	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  JOYFN,   XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
   ),
 };
 
 bool DPAD_ACTIVE = true;
 bool LSTICK_ACTIVE = false;
-
 
 layer_state_t layer_state_set_user(layer_state_t state) {
 
@@ -172,7 +156,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 		LSTICK_ACTIVE = false;
 	}
 
-  return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+  return state;
 }
 
 
