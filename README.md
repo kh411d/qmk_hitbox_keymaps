@@ -1,17 +1,17 @@
 # QMK Hitbox Keymaps
-The visual below is using the Reviung41 layout as example, but it could easily adjust to any keyboards. Take a look at [_template_/keymaps/hitbox](https://github.com/kh411d/qmk_hitbox_keymaps/tree/master/_template_/keymaps/hitbox) for 10x4 base template
+The visual below uses the Reviung41 layout as an example, but it could easily adjust to any keyboard. Take a look at [_template_/keymaps/hitbox](https://github.com/kh411d/qmk_hitbox_keymaps/tree/master/_template_/keymaps/hitbox) for 10x4 base template
 
 ## Keyboard Layer
 
-Using the Default layers from Reviung41 with couple of mods,
+Using the Default layers from Reviung41 with a couple of mods,
 
-![keyboardfn](https://github.com/kh411d/qmk_reviung41_keymaps/assets/273012/c3449916-f1e0-426f-9909-ce6e591ad83f)
+![g1850](https://github.com/kh411d/qmk_hitbox_keymaps/assets/273012/cada7e39-0ff9-41e4-b1d9-3ddcf7dbccf8)
 
 Usage:
 
-- Hold the Space key and then press S for Directional layer with **Left Stick** mode active
-- Hold the Space key and then press D for Directional layer with **DPAD** mode
-- Switching between Stick and DPAD modes You need to go back to keyboard layout
+- Hold [SPACE] then press [S] = **Left Stick** mode 
+- Hold [SPACE] then press [D] = **DPAD** mode
+- Switching between Left stick and DPAD mode you need to go back to the keyboard layer and choose again.
 
 ## Joystick Layers
 Additional joystick layers to the default layers
@@ -22,28 +22,29 @@ Additional joystick layers to the default layers
     - DPAD
 ---
 
-
-![dpad_mode](https://github.com/kh411d/qmk_reviung41_keymaps/assets/273012/5a45c421-db0c-4c33-817f-82a2cd0b711e)
+![g2010](https://github.com/kh411d/qmk_hitbox_keymaps/assets/273012/cf2e9171-2b90-4df3-a574-135a6b69ac32)
 
 **DPAD mode** 
 
-- Use the WIN/toggle key reset and go back to the keyboard mode
-- Use the Command/toggle key to switch SOCD mode
+- Press [WIN] (bottom left corner) = Go back to keyboard layer
+- Hold [Command] (bottom right corner) for the SOCD mode switcher, see SOCD layers below
 
 ---
 
-![stick_mode](https://github.com/kh411d/qmk_reviung41_keymaps/assets/273012/025e2b2f-cc6d-48e5-adbc-7d5d05d86bd2)
+![g1986](https://github.com/kh411d/qmk_hitbox_keymaps/assets/273012/bda3bc81-1769-418f-aabf-89e6a4febf36)
 
 **Stick mode** 
 
-- Use the WIN/toggle key on the bottom left corner to go back to the keyboard mod
-- Use the Command/toggle key to switch SOCD mode
+- Press [WIN] (bottom left corner) = Go back to keyboard layer
+- Hold [Command] (bottom right corner) for the SOCD mode switcher, see SOCD layers below
 
 ---
 
 ### SOCD Layers
 
 Support 3 kinds of SOCD: 
+
+Standard SOCD is the default every time you choose a directional layer the first time.
 
 - Standard SOCD, 
     - Up + Down = Up
@@ -59,9 +60,11 @@ Support 3 kinds of SOCD:
 
 While on Directional Layer,
 
-- Hold command and then X for Standard SOCD
-- Hold command and then O for True neutral SOCD
-- Hold command and then L2 for Last input priority SOCD
+![g2485](https://github.com/kh411d/qmk_hitbox_keymaps/assets/273012/9ca74484-a679-4d4e-b948-ca9b67d53788)
+
+- Hold [Command] then press [X] = Standard SOCD
+- Hold [Command] then press [O] = True neutral SOCD
+- Hold [Command] then press [R2] = Last input priority SOCD
 
 ## Self Compile the firmware file 
 
