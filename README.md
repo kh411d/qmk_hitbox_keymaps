@@ -89,6 +89,7 @@ On compile succeed, the hex file should be created on your `qmk_firmware/reviung
 
 ## Flashing
 
-Download the hex file [reviung_reviung41_hitbox.hex.zip](https://github.com/kh411d/qmk_reviung41_keymaps/files/12410985/reviung_reviung41_hitbox.hex.zip) to skip the compile process
+Download the hex file [reviung_reviung41_hitbox.hex.zip](https://github.com/kh411d/qmk_hitbox_keymaps/files/12447786/reviung_reviung41_hitbox.hex.zip)
+ to skip the compile process
 
 Use [QMK toolbox to flash the generated hex file](https://docs.qmk.fm/#/newbs_flashing) for your MCU (e.g. promicro, seamicro, etc).
