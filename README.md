@@ -25,7 +25,7 @@ Additional joystick layers to the default layers
 ---
 **Usage**
 
-![g14068](https://github.com/kh411d/qmk_hitbox_keymaps/assets/273012/cd11de50-23cf-4bf8-81e5-c7d973509d7a)
+![g35545](https://github.com/kh411d/qmk_hitbox_keymaps/assets/273012/e624c659-4c4a-40d5-8f7c-6c7f2520b525)
 
 
 
