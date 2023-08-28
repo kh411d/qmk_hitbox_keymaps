@@ -7,42 +7,31 @@ Using the Default layers from Reviung41 with a couple of mods,
 
 ![g1850](https://github.com/kh411d/qmk_hitbox_keymaps/assets/273012/cada7e39-0ff9-41e4-b1d9-3ddcf7dbccf8)
 
-Usage:
+![g34789](https://github.com/kh411d/qmk_hitbox_keymaps/assets/273012/4fd9c380-a4ed-4864-8ccd-1e0ebf3d0fd0)
 
-- Hold [SPACE] then press [S] = **Left Stick** mode 
-- Hold [SPACE] then press [D] = **DPAD** mode
-- Switching between Left stick and DPAD mode you need to go back to the keyboard layer and choose again.
 
 ## Joystick Layers
 Additional joystick layers to the default layers
-### Directional Layers
-
-- Consist with 2 directional modes
-    - Left stick 
-    - DPAD
----
-
-![g2010](https://github.com/kh411d/qmk_hitbox_keymaps/assets/273012/cf2e9171-2b90-4df3-a574-135a6b69ac32)
 
 **DPAD mode** 
 
-- Press [WIN] (bottom left corner) = Go back to keyboard layer
-- Hold [Command] (bottom right corner) for the SOCD mode switcher, see SOCD layers below
+![g14448](https://github.com/kh411d/qmk_hitbox_keymaps/assets/273012/9ab6351f-8867-424b-b5ad-c9dd27f2c48c)
 
 ---
-
-![g1986](https://github.com/kh411d/qmk_hitbox_keymaps/assets/273012/bda3bc81-1769-418f-aabf-89e6a4febf36)
-
 **Stick mode** 
 
-- Press [WIN] (bottom left corner) = Go back to keyboard layer
-- Hold [Command] (bottom right corner) for the SOCD mode switcher, see SOCD layers below
+![g14652](https://github.com/kh411d/qmk_hitbox_keymaps/assets/273012/ab56707d-6b13-447e-a077-a523a99826c9)
 
 ---
+**Usage**
 
-### SOCD Layers
+![g14068](https://github.com/kh411d/qmk_hitbox_keymaps/assets/273012/cd11de50-23cf-4bf8-81e5-c7d973509d7a)
 
-Support 3 kinds of SOCD: 
+
+
+### SOCD Modes
+
+[What is SOCD?](https://www.hitboxarcade.com/blogs/support/what-is-socd)
 
 Standard SOCD is the default every time you choose a directional layer the first time.
 
@@ -57,14 +46,6 @@ Standard SOCD is the default every time you choose a directional layer the first
     - Down + Up = Up
     - Left + Right = Right 
     - Right + Left = Left
-
-While on Directional Layer,
-
-![g2485](https://github.com/kh411d/qmk_hitbox_keymaps/assets/273012/9ca74484-a679-4d4e-b948-ca9b67d53788)
-
-- Hold [Command] then press [X] = Standard SOCD
-- Hold [Command] then press [O] = True neutral SOCD
-- Hold [Command] then press [R2] = Last input priority SOCD
 
 ## Self Compile the firmware file 
 
@@ -89,7 +70,4 @@ On compile succeed, the hex file should be created on your `qmk_firmware/reviung
 
 ## Flashing
 
-Download the hex file [reviung_reviung41_hitbox.hex.zip](https://github.com/kh411d/qmk_hitbox_keymaps/files/12447786/reviung_reviung41_hitbox.hex.zip)
- to skip the compile process
-
-Use [QMK toolbox to flash the generated hex file](https://docs.qmk.fm/#/newbs_flashing) for your MCU (e.g. promicro, seamicro, etc).
+Use [QMK toolbox to flash the newly created hex file](https://docs.qmk.fm/#/newbs_flashing) for your MCU (e.g. promicro, seamicro, etc).
