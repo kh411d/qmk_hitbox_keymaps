@@ -29,7 +29,6 @@ enum layer_names {
 	_SOCDLIP,
 
 // Toggle layers
-	_SOCDFN,
     _JOYFN
 };
 
@@ -41,7 +40,6 @@ enum layer_names {
 #define SOCDN   TO(_SOCDN)
 #define SOCDLIP TO(_SOCDLIP)
 #define JOYFN   LT(_JOYFN, KC_SPC)
-#define SOCDFN  MO(_SOCDFN)
 
 enum custom_keycodes {  
 	// Cross, Circle, Square, Triangle buttons
@@ -98,35 +96,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     JS_HOM,  JS_SEL,  JS_STRT, JS_L3,    JS_R3,   XXXXXXX,  JS_SQU,   JS_TRI,  JS_R1,   JS_L1,   
 	XXXXXXX, JS_LT,   JS_DN,   JS_RT,	 XXXXXXX, XXXXXXX,  JS_CRO,   JS_CIR,  JS_R2,   JS_L2,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                                                              
-	BASE,    XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, JS_UP,    XXXXXXX,  XXXXXXX, XXXXXXX, SOCDFN
+	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, JS_UP,    XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
   ),
  
   [_LSTICK] = LAYOUT(
     JS_HOM,  JS_SEL,  JS_STRT, JS_L3,    JS_R3,   XXXXXXX,  JS_SQU,   JS_TRI,  JS_R1,   JS_L1,   
 	XXXXXXX, JS_LT,   JS_DN,   JS_RT,	 XXXXXXX, XXXXXXX,  JS_CRO,   JS_CIR,  JS_R2,   JS_L2,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                                                              
-	BASE,    XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, JS_UP,    XXXXXXX,  XXXXXXX, XXXXXXX, SOCDFN
+	BASE,    XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, JS_UP,    XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
   ),
 
   [_SOCDN] = LAYOUT(
     JS_HOM,  JS_SEL,  JS_STRT, JS_L3,    JS_R3,   XXXXXXX,  JS_SQU,   JS_TRI,  JS_R1,   JS_L1,   
 	XXXXXXX, JS_LT,   JS_DN_N, JS_RT,	 XXXXXXX, XXXXXXX,  JS_CRO,   JS_CIR,  JS_R2,   JS_L2,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                                                              
-	BASE,    XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, JS_UP_N,  XXXXXXX,  XXXXXXX, XXXXXXX, SOCDFN
+	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, JS_UP_N,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
   ),
 
   [_SOCDLIP] = LAYOUT(
     JS_HOM,  JS_SEL,    JS_STRT,   JS_L3,      JS_R3,   XXXXXXX,    JS_SQU,   JS_TRI,  JS_R1,   JS_L1,   
 	XXXXXXX, JS_LT_LIP, JS_DN_LIP, JS_RT_LIP,  XXXXXXX, XXXXXXX,    JS_CRO,   JS_CIR,  JS_R2,   JS_L2,
     XXXXXXX, XXXXXXX,   XXXXXXX,   XXXXXXX,    XXXXXXX, XXXXXXX,    XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                                                              
-	BASE,    XXXXXXX,   XXXXXXX,   XXXXXXX,    XXXXXXX, JS_UP_LIP,  XXXXXXX,  XXXXXXX, XXXXXXX, SOCDFN
-  ),
-
-  [_SOCDFN] = LAYOUT(
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, 
-	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  DPAD,     SOCDN,   SOCDLIP, XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                                                              
-	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, SOCDFN
+	XXXXXXX, XXXXXXX,   XXXXXXX,   XXXXXXX,    XXXXXXX, JS_UP_LIP,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
   ),
   
   [_JOYFN] = LAYOUT(
@@ -135,6 +126,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                                                              
 	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  JOYFN,   XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
   ),
+};
+
+// Combo usage for exit and socd mode
+const uint16_t PROGMEM exit_joystick[]     = {JS_HOM, JS_LT, COMBO_END};
+const uint16_t PROGMEM exit_joystick_alt[] = {JS_HOM, JS_LT_LIP, COMBO_END};
+const uint16_t PROGMEM socd_s_activate[]   = {JS_HOM, JS_CRO, COMBO_END};
+const uint16_t PROGMEM socd_n_activate[]   = {JS_HOM, JS_CIR, COMBO_END};
+const uint16_t PROGMEM socd_l_activate[]   = {JS_HOM, JS_R2, COMBO_END};
+combo_t key_combos[] = {
+	COMBO(exit_joystick, BASE),
+	COMBO(exit_joystick_alt, BASE),
+	COMBO(socd_s_activate, DPAD),
+	COMBO(socd_n_activate, SOCDN),
+	COMBO(socd_l_activate, SOCDLIP),
 };
 
 bool DPAD_ACTIVE = true;
