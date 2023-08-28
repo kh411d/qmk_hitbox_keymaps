@@ -131,7 +131,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     JS_HOM,  JS_SEL,   JS_STRT, XXXXXXX, XXXXXXX,  JS_L3,              JS_R3,    JS_SQU,    JS_TRI,  JS_R1,   JS_L1,   XXXXXXX,
     XXXXXXX, XXXXXXX,  JS_LT,   JS_DN_N, JS_RT,    XXXXXXX,            XXXXXXX,  JS_CRO,    JS_CIR,  JS_R2,   JS_L2,   XXXXXXX,
     XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,            XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX,
-                                         XXXXXXX,  JS_UP_N,  JS_UP_N,  JS_UP,    XXXXXXX
+                                         XXXXXXX,  JS_UP_N,  JS_UP_N,  JS_UP_N,  XXXXXXX
   ),
 
   [_SOCDLIP] = LAYOUT(
