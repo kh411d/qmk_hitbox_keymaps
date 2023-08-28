@@ -150,14 +150,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 // Combo usage for exit and socd mode
-const uint16_t PROGMEM exit_joystick[]     = {JS_HOM, JS_LT, COMBO_END};
-const uint16_t PROGMEM exit_joystick_alt[] = {JS_HOM, JS_LT_LIP, COMBO_END};
-const uint16_t PROGMEM socd_s_activate[]   = {JS_HOM, JS_CRO, COMBO_END};
-const uint16_t PROGMEM socd_n_activate[]   = {JS_HOM, JS_CIR, COMBO_END};
-const uint16_t PROGMEM socd_l_activate[]   = {JS_HOM, JS_R2, COMBO_END};
+const uint16_t PROGMEM exit_joystick[]     = {JS_HOM, JS_SEL, COMBO_END};
+const uint16_t PROGMEM socd_s_activate[]   = {JS_HOM, JS_STRT, COMBO_END};
+const uint16_t PROGMEM socd_n_activate[]   = {JS_HOM, JS_L3, COMBO_END};
+const uint16_t PROGMEM socd_l_activate[]   = {JS_HOM, JS_R3, COMBO_END};
 combo_t key_combos[] = {
 	COMBO(exit_joystick, BASE),
-	COMBO(exit_joystick_alt, BASE),
 	COMBO(socd_s_activate, DPAD),
 	COMBO(socd_n_activate, SOCDN),
 	COMBO(socd_l_activate, SOCDLIP),
