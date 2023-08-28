@@ -22,11 +22,11 @@ enum layer_names {
 /* Joystick layer start from here */
 // Direction Layers defaulted to standard SOCD
     _DPAD,
-	_LSTICK,
+    _LSTICK,
 
 // SOCD Layers
-	_SOCDN,
-	_SOCDLIP,
+    _SOCDN,
+    _SOCDLIP,
 
 // Toggle layers
     _JOYFN
@@ -86,9 +86,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // The Keyboard Layer
   [_BASE] = LAYOUT(
     XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, 
-	XXXXXXX,    KC_S,    KC_D,  XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, KC_S,    KC_D,     XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                                                              
-	XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, JOYFN,   XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, QK_BOOT
+    XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, JOYFN,   XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, QK_BOOT
   ),
 
   // The Joystick Layers 
@@ -108,23 +108,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_SOCDN] = LAYOUT(
     JS_HOM,  JS_SEL,  JS_STRT, JS_L3,    JS_R3,   XXXXXXX,  JS_SQU,   JS_TRI,  JS_R1,   JS_L1,   
-	XXXXXXX, JS_LT,   JS_DN_N, JS_RT,	 XXXXXXX, XXXXXXX,  JS_CRO,   JS_CIR,  JS_R2,   JS_L2,
+    XXXXXXX, JS_LT,   JS_DN_N, JS_RT,	 XXXXXXX, XXXXXXX,  JS_CRO,   JS_CIR,  JS_R2,   JS_L2,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                                                              
 	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, JS_UP_N,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
   ),
 
   [_SOCDLIP] = LAYOUT(
     JS_HOM,  JS_SEL,    JS_STRT,   JS_L3,      JS_R3,   XXXXXXX,    JS_SQU,   JS_TRI,  JS_R1,   JS_L1,   
-	XXXXXXX, JS_LT_LIP, JS_DN_LIP, JS_RT_LIP,  XXXXXXX, XXXXXXX,    JS_CRO,   JS_CIR,  JS_R2,   JS_L2,
+    XXXXXXX, JS_LT_LIP, JS_DN_LIP, JS_RT_LIP,  XXXXXXX, XXXXXXX,    JS_CRO,   JS_CIR,  JS_R2,   JS_L2,
     XXXXXXX, XXXXXXX,   XXXXXXX,   XXXXXXX,    XXXXXXX, XXXXXXX,    XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                                                              
 	XXXXXXX, XXXXXXX,   XXXXXXX,   XXXXXXX,    XXXXXXX, JS_UP_LIP,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
   ),
   
   [_JOYFN] = LAYOUT(
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, 
-	XXXXXXX, XXXXXXX, LSTICK,  DPAD,     XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, LSTICK,  DPAD,     XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                                                              
-	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  JOYFN,   XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  JOYFN,   XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
   ),
 };
 
@@ -372,7 +372,7 @@ bool joy_x(bool ok, uint8_t button) {
 	return false;
 }
 
-// The order of button numbering is following the button report number from the good ol PS3 joystick
+// The order of button numbering follows the button report number from the good old PS3 joystick
 // e.g. Cross = button 0, Circle = button 1, ... , Home = button 16
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	bool p = record->event.pressed;

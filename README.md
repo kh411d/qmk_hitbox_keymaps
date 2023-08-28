@@ -1,5 +1,5 @@
 # QMK Hitbox Keymaps
-The visual below uses the Reviung41 layout as an example, but it could easily adjust to any keyboard. Take a look at [_template_/keymaps/hitbox](https://github.com/kh411d/qmk_hitbox_keymaps/tree/master/_template_/keymaps/hitbox) for 10x4 base template
+The visual below uses the Reviung41 layout as an example, but it could easily adjust to any keyboard. Take a look at [10x4 Ortho base template](https://github.com/kh411d/qmk_hitbox_keymaps/blob/master/_template/keymaps/hitbox/keymap.c) 
 
 ## Keyboard Layer
 
