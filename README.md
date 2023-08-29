@@ -71,3 +71,9 @@ On compile succeed, the hex file should be created on your `qmk_firmware/reviung
 ## Flashing
 
 Use [QMK toolbox to flash the newly created hex file](https://docs.qmk.fm/#/newbs_flashing) for your MCU (e.g. promicro, seamicro, etc).
+
+## Usage Guide
+
+I put a hitbox test on my YouTube video, feel free to check it out,
+
+[![Build a HitBox Joystick arcade on top your QMK keyboard](https://img.youtube.com/vi/3g1d5XxQPZM/0.jpg)](https://www.youtube.com/watch?v=3g1d5XxQPZM)
