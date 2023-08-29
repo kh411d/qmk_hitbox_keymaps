@@ -19,7 +19,7 @@ enum layer_names {
     _BASE,
 
 
-/* Joystick layer start from here */
+/* Joystick layer starts from here */
 // Direction Layers defaulted to standard SOCD
     _DPAD,
     _LSTICK,
@@ -42,7 +42,7 @@ enum layer_names {
 #define JOYFN   LT(_JOYFN, KC_SPC)
 
 enum custom_keycodes {  
-	// Cross, Circle, Square, Triangle buttons
+	// Cross, Circle, Square, and Triangle buttons
 	JS_CRO = SAFE_RANGE,
 	JS_CIR,
 	JS_SQU,
@@ -94,30 +94,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // The Joystick Layers 
   [_DPAD] = LAYOUT(
     JS_HOM,  JS_SEL,  JS_STRT, JS_L3,    JS_R3,   XXXXXXX,  JS_SQU,   JS_TRI,  JS_R1,   JS_L1,   
-	XXXXXXX, JS_LT,   JS_DN,   JS_RT,	 XXXXXXX, XXXXXXX,  JS_CRO,   JS_CIR,  JS_R2,   JS_L2,
+    XXXXXXX, JS_LT,   JS_DN,   JS_RT,	 XXXXXXX, XXXXXXX,  JS_CRO,   JS_CIR,  JS_R2,   JS_L2,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                                                              
-	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, JS_UP,    XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, JS_UP,    XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
   ),
  
   [_LSTICK] = LAYOUT(
     JS_HOM,  JS_SEL,  JS_STRT, JS_L3,    JS_R3,   XXXXXXX,  JS_SQU,   JS_TRI,  JS_R1,   JS_L1,   
-	XXXXXXX, JS_LT,   JS_DN,   JS_RT,	 XXXXXXX, XXXXXXX,  JS_CRO,   JS_CIR,  JS_R2,   JS_L2,
+    XXXXXXX, JS_LT,   JS_DN,   JS_RT,	 XXXXXXX, XXXXXXX,  JS_CRO,   JS_CIR,  JS_R2,   JS_L2,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                                                              
-	BASE,    XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, JS_UP,    XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, JS_UP,    XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
   ),
 
   [_SOCDN] = LAYOUT(
     JS_HOM,  JS_SEL,  JS_STRT, JS_L3,    JS_R3,   XXXXXXX,  JS_SQU,   JS_TRI,  JS_R1,   JS_L1,   
     XXXXXXX, JS_LT,   JS_DN_N, JS_RT,	 XXXXXXX, XXXXXXX,  JS_CRO,   JS_CIR,  JS_R2,   JS_L2,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                                                              
-	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, JS_UP_N,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, JS_UP_N,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
   ),
 
   [_SOCDLIP] = LAYOUT(
     JS_HOM,  JS_SEL,    JS_STRT,   JS_L3,      JS_R3,   XXXXXXX,    JS_SQU,   JS_TRI,  JS_R1,   JS_L1,   
     XXXXXXX, JS_LT_LIP, JS_DN_LIP, JS_RT_LIP,  XXXXXXX, XXXXXXX,    JS_CRO,   JS_CIR,  JS_R2,   JS_L2,
     XXXXXXX, XXXXXXX,   XXXXXXX,   XXXXXXX,    XXXXXXX, XXXXXXX,    XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                                                              
-	XXXXXXX, XXXXXXX,   XXXXXXX,   XXXXXXX,    XXXXXXX, JS_UP_LIP,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
+    XXXXXXX, XXXXXXX,   XXXXXXX,   XXXXXXX,    XXXXXXX, JS_UP_LIP,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX
   ),
   
   [_JOYFN] = LAYOUT(
